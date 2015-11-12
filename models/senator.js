@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/oligarchs_dev');
 
 var senatorSchema = new mongoose.Schema({
   id: String,
@@ -22,7 +23,8 @@ var senatorSchema = new mongoose.Schema({
   total_present: Number,
   state: String,
   missed_votes_pct: Number,
-  votes_with_party_pct: Number
+  votes_with_party_pct: Number,
+  topContributers: Array
 });
 
 module.exports = mongoose.model('Senator', senatorSchema);
