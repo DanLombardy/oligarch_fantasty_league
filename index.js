@@ -5,4 +5,4 @@ var vote2Voter = require(__dirname + '/lib/matchSenatorsVotes');
 
 
 //BuildSenators();
-BuildRollCallVote(110, 'senate', 2, 178, vote2Voter);
+BuildRollCallVote(110, 'senate', 2, 160, vote2Voter);
