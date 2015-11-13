@@ -1,0 +1,11 @@
+{
+  "name": "oligarch_fantasy_league",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dustin Noyes <dustin.noyes@gmail.com>",
+  "license": "MIT"
+}
