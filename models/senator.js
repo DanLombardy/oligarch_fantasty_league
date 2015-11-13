@@ -24,7 +24,8 @@ var senatorSchema = new mongoose.Schema({
   state: String,
   missed_votes_pct: Number,
   votes_with_party_pct: Number,
-  topContributers: Array
+  topContributers: Array,
+  votingRecord: Array,
 });
 
 module.exports = mongoose.model('Senator', senatorSchema);
