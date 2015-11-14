@@ -4,18 +4,13 @@ var vote2Voter = require(__dirname + '/lib/matchSenatorsVotes');
 var Promise = require('promise');
 
 
-  function doSomething() {
-    return {
-      then: function getVoters(callback){
-        var x = vote2Voter('S001141');
-        console.log(x);
-        callback(x);
-      }
-    };
-  }
-  doSomething().then(function(result) {
-      console.log('my result' + result)
-  });
-
+//this function will pull a senators 5 most recent votes from the db
+vote2Voter.myRecentVotes('S001141')
+.then(function (result) {
+    console.log(result);
+})
+.fail(function (error) {
+    console.log(error);
+});
 
 
