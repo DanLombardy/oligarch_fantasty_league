@@ -5,7 +5,7 @@ var Promise = require('promise');
 
 
 //this function will pull a senators 5 most recent votes from the db
-vote2Voter.myRecentVotes('M001183')
+vote2Voter.myRecentVotes('B000944')
 .then(function (result) {
     console.log(result);
 })
