@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dustin Noyes <dustin.noyes@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.0",
+    "promise": "^7.0.4",
+    "request": "^2.65.0",
+    "rsvp": "^3.1.0"
+  }
 }
