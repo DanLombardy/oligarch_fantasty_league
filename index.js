@@ -9,7 +9,7 @@ var populateFECs = require((__dirname + '/lib/populateFECs'))
 
 
 
-//BuildSenators();//
+BuildSenators();//
 //BuildFinancials(2016, 'P60006723');
 
 //DON'T DELETE:  this function will pull a senators 5 most recent votes from the db
