@@ -1,8 +1,16 @@
 var BuildSenators = require(__dirname + '/lib/BuildSenators.js');
 var BuildRollCallVote = require(__dirname + '/lib/BuildRollCallVote');
 var vote2Voter = require(__dirname + '/lib/matchSenatorsVotes');
+var Promise = require('promise');
 
 
+//this function will pull a senators 5 most recent votes from the db
+vote2Voter.myRecentVotes('B000944')
+.then(function (result) {
+    console.log(result);
+})
+.fail(function (error) {
+    console.log(error)
+});
 
-//BuildSenators();
-BuildRollCallVote(110, 'senate', 2, 159, vote2Voter);
+
