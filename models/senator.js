@@ -26,6 +26,8 @@ var senatorSchema = new mongoose.Schema({
   votes_with_party_pct: Number,
   topContributers: Array,
   votingRecord: Array,
+  FEC_id: String,
+  FEC_results: Object
 });
 
 module.exports = mongoose.model('Senator', senatorSchema);
