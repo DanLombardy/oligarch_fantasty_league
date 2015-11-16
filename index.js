@@ -5,10 +5,7 @@ var vote2Voter = require(__dirname + '/lib/matchSenatorsVotes');
 var Promise = require('promise');
 var populateFECs = require(__dirname + '/lib/populateFECs');
 var missedVotes = require(__dirname + '/lib/calcs/calcMissedVotes');
-
-//populateCRPs();
-//BuildSenators();//
-//BuildFinancials(2016, 'S0IL00261');
+var partyLine = require(__dirname + '/lib/calcs/calcPartyLine');//BuildFinancials(2016, 'S0IL00261');
 
 //DON'T DELETE:  this function will pull a senators 5 most recent votes from the db
 /*
@@ -22,12 +19,27 @@ vote2Voter.myRecentVotes('B000944')
 */
 
 //DON'T DELETE:  this function will pull average missed votes of senators
+/*
 missedVotes.missedVoteAvg()
 .then(function (result) {
     console.log(result);
 })
 .fail(function (error) {
     console.log(error)
+});*/
+
+//DON'T DELETE:  this function will pull average missed votes of senators
+partyLine.partyLineD()
+.then(function (result) {
+    console.log(result);
+})
+.fail(function (error) {
+    console.log(error)
 });
-
-
+partyLine.partyLineR()
+.then(function (result) {
+    console.log(result);
+})
+.fail(function (error) {
+    console.log(error)
+});
