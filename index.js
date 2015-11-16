@@ -3,14 +3,12 @@ var BuildRollCallVote = require(__dirname + '/lib/BuildRollCallVote');
 var BuildFinancials = require(__dirname + '/lib/buildfinancialdetails');
 var vote2Voter = require(__dirname + '/lib/matchSenatorsVotes');
 var Promise = require('promise');
-var populateFECs = require((__dirname + '/lib/populateFECs'))
+var populateFECs = require(__dirname + '/lib/populateFECs');
+var missedVotes = require(__dirname + '/lib/calcs/calcMissedVotes');
 
-
-
-
-
-BuildSenators();//
-//BuildFinancials(2016, 'P60006723');
+//populateCRPs();
+//BuildSenators();//
+//BuildFinancials(2016, 'S0IL00261');
 
 //DON'T DELETE:  this function will pull a senators 5 most recent votes from the db
 /*
@@ -23,5 +21,13 @@ vote2Voter.myRecentVotes('B000944')
 });
 */
 
+//DON'T DELETE:  this function will pull average missed votes of senators
+missedVotes.missedVoteAvg()
+.then(function (result) {
+    console.log(result);
+})
+.fail(function (error) {
+    console.log(error)
+});
 
 
