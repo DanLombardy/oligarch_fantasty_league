@@ -10,30 +10,41 @@ var factCheck = require(__dirname + '/lib/populateFactCheck.js')
 var lie2Voter = require(__dirname + '/lib/matchSenatorsFactChecks');
 
 
-lie2Voter.myRecentLies('W000817')
-.then(function (result) {
-   console.log(result);
-})
-.fail(function (error) {
-    console.log(error)
-});
+//CODE TO BUILD THE DB OF SENATORS
 //BuildSenators();
-//factCheck();
-//BuildRollCallVote(114, 'senate', 1, 304);
-//BuildFinancials(2016, 'S0IL00261');
 
-//DON'T DELETE:  this function will pull a senators 5 most recent votes from the db
-/*
-vote2Voter.myRecentVotes('B000944')
-.then(function (result) {
-    console.log(result);
-})
-.fail(function (error) {
-    console.log(error)
-});
+/* ROLL CALL VOTE CODE
+  //CODE TO BUILD THE DB OF ROLLCALL VOTES (MUST BE RUN FOR EACH ROLL CALL VOTE)
+  //INFO CAN BE FOUND HERE:  http://www.senate.gov/legislative/votes.htm
+  //BuildRollCallVote(CONGRESS #, 'senate', SESSION, ROLLCALL VOTE #);
+
+  //CODE TO RETURN A SENATORS RECENT VOTES (AFTER ROLLCALL DB HAS BEEN POPULATED)
+  vote2Voter.myRecentVotes(SENATOR.id)
+  .then(function (result) {
+      console.log(result);
+  })
+  .fail(function (error) {
+      console.log(error)
+  });*/
+
+//CODE TO BUILD FINANCIAL INFO
+//BuildFinancials(YEAR, SENATOR.FEC_ID);
+
+/*FACT CHECKING CODE
+  //CODE TO BUILD THE DB OF FACT-CHECKED STATEMENTS
+  //factCheck();
+
+  //CODE TO RETURN A SENATORS RECENT FACT-CHECKED STATEMENTS
+  lie2Voter.myRecentLies(SENATORS ID HERE)
+  .then(function (result) {
+     console.log(typeof result);
+  })
+  .fail(function (error) {
+      console.log(error)
+  });
 */
 
-//DON'T DELETE:  this function will pull average missed votes of senators
+//CODE TO PULL AVERAGE OF MISSED VOTES
 /*
 missedVotes.missedVoteAvg()
 .then(function (result) {
@@ -43,7 +54,7 @@ missedVotes.missedVoteAvg()
     console.log(error)
 });*/
 
-//DON'T DELETE:  this function will pull average missed votes of senators
+//PARTY LINE VOTE AVERAGES (ONE FOR Ds, ONE FOR Rs)
 /*
 partyLine.partyLineD()
 .then(function (result) {
