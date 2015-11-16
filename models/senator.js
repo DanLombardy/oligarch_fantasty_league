@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/oligarchs_dev');
 
 var senatorSchema = new mongoose.Schema({
-  id: String,
+  id: {type: String, unique: true, dropDups: true},
   thomas_id: Number,
   api_uri: String,
   first_name: String,
@@ -29,5 +29,9 @@ var senatorSchema = new mongoose.Schema({
   FEC_id: String,
   FEC_results: Object
 });
+
+senatorSchema.index({id: 1});
+senatorSchema.set('autoIndex', false);
+
 
 module.exports = mongoose.model('Senator', senatorSchema);

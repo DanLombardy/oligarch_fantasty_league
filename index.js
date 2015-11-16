@@ -5,7 +5,22 @@ var vote2Voter = require(__dirname + '/lib/matchSenatorsVotes');
 var Promise = require('promise');
 var populateFECs = require(__dirname + '/lib/populateFECs');
 var missedVotes = require(__dirname + '/lib/calcs/calcMissedVotes');
-var partyLine = require(__dirname + '/lib/calcs/calcPartyLine');//BuildFinancials(2016, 'S0IL00261');
+var partyLine = require(__dirname + '/lib/calcs/calcPartyLine');
+var factCheck = require(__dirname + '/lib/populateFactCheck.js')
+var lie2Voter = require(__dirname + '/lib/matchSenatorsFactChecks');
+
+
+lie2Voter.myRecentLies('W000817')
+.then(function (result) {
+   console.log(result);
+})
+.fail(function (error) {
+    console.log(error)
+});
+//BuildSenators();
+//factCheck();
+//BuildRollCallVote(114, 'senate', 1, 304);
+//BuildFinancials(2016, 'S0IL00261');
 
 //DON'T DELETE:  this function will pull a senators 5 most recent votes from the db
 /*
@@ -29,6 +44,7 @@ missedVotes.missedVoteAvg()
 });*/
 
 //DON'T DELETE:  this function will pull average missed votes of senators
+/*
 partyLine.partyLineD()
 .then(function (result) {
     console.log(result);
@@ -43,3 +59,4 @@ partyLine.partyLineR()
 .fail(function (error) {
     console.log(error)
 });
+*/
