@@ -14,6 +14,7 @@ var http = require('http');
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var senatorRouter = require(__dirname + '/routes/routes_senators.js')
 
 //BuildCommitteeContributes(2012, 'C00495861');
 
@@ -25,7 +26,8 @@ var server = app.listen(4000, function(){
 });
 
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
+app.use('/', senatorRouter);
 
 
 app.get('/', function (req, res) {
