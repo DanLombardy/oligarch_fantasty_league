@@ -27,7 +27,8 @@ var senatorSchema = new mongoose.Schema({
   topContributers: Array,
   votingRecord: Array,
   FEC_id: String,
-  FEC_results: Object
+  FEC_results: Object,
+  currentScore: Object
 });
 
 senatorSchema.index({id: 1});

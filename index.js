@@ -6,10 +6,9 @@ var Promise = require('promise');
 var populateFECs = require(__dirname + '/lib/populateFECs');
 var missedVotes = require(__dirname + '/lib/calcs/calcMissedVotes');
 var partyLine = require(__dirname + '/lib/calcs/calcPartyLine');
-var factCheck = require(__dirname + '/lib/populateFactCheck.js')
-var lie2Voter = require(__dirname + '/lib/matchSenatorsFactChecks');
+var factCheck = require(__dirname + '/lib/populateFactCheck.js');
 var calcLies = require(__dirname + '/lib/calcs/calcLies');
-
+var lie2Voter = require(__dirname + '/lib/matchSenatorsFactChecks');
 */
 var http = require('http');
 var express = require('express');
@@ -39,6 +38,9 @@ app.get('/', function (req, res) {
 
 });
 
+
+var score = require(__dirname + '/lib/scoreSenators');
+score('A000360');
 
 //CODE TO BUILD THE DB OF SENATORS
 //BuildSenators();
