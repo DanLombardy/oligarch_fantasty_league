@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/oligarchs_dev');
 
 var senatorSchema = new mongoose.Schema({
-  id: String,
+  id: {type: String, unique: true, dropDups: true},
   thomas_id: Number,
   api_uri: String,
   first_name: String,
@@ -27,7 +27,27 @@ var senatorSchema = new mongoose.Schema({
   topContributers: Array,
   votingRecord: Array,
   FEC_id: String,
-  FEC_results: Object
+  FEC_results: Object,
+  currentScore: {
+    Liar: {
+    'Huge Liar': Boolean,
+    'Liar': Boolean,
+    'Kind of a Liar': Boolean,
+    'Liar, but not like a LIAR-liar': Boolean,
+    'Upstanding': Boolean
+    },
+    Absentee: Boolean,
+    Partisan: Boolean,
+    PlayMaker: {
+      PlayID: String,
+      PlayPoints: Number
+    }
+  },
+  pastScores: Array
 });
+
+senatorSchema.index({id: 1});
+senatorSchema.set('autoIndex', false);
+
 
 module.exports = mongoose.model('Senator', senatorSchema);
