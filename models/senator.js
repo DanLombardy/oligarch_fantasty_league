@@ -28,7 +28,22 @@ var senatorSchema = new mongoose.Schema({
   votingRecord: Array,
   FEC_id: String,
   FEC_results: Object,
-  currentScore: Object
+  currentScore: {
+    Liar: {
+    'Huge Liar': Boolean,
+    'Liar': Boolean,
+    'Kind of a Liar': Boolean,
+    'Liar, but not like a LIAR-liar': Boolean,
+    'Upstanding': Boolean
+    },
+    Absentee: Boolean,
+    Partisan: Boolean,
+    PlayMaker: {
+      PlayID: String,
+      PlayPoints: Number
+    }
+  },
+  pastScores: Array
 });
 
 senatorSchema.index({id: 1});

@@ -38,10 +38,11 @@ app.get('/', function (req, res) {
 
 });
 
-//CODE TO GET SCORECARD (UNCONSTRUCTION)
+//CODE TO GET SCORECARD
 /*
 var score = require(__dirname + '/lib/scoreSenators');
-score('A000360');*/
+score('B000575')
+});*/
 
 //CODE TO BUILD THE DB OF SENATORS
 //BuildSenators();
