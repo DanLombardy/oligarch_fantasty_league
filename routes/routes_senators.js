@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var Senator = require(__dirname + '/../models/senator');
 var handleError = require(__dirname + '/../lib/handleServerError.js');
 var requester = require('request');
-var bodyParser = require('body-parser');
 
 var senatorRouter = module.exports = exports = express.Router();
 
