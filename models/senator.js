@@ -26,6 +26,7 @@ var senatorSchema = new mongoose.Schema({
   votes_with_party_pct: Number,
   topContributers: Array,
   votingRecord: Array,
+  factChecks: Array,
   FEC_id: String,
   FEC_results: Object,
   currentScore: {
