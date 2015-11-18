@@ -1,3 +1,6 @@
+
+var senator = require(__dirname + '/models/senator');
+var mongoose = require('mongoose');
 var http = require('http');
 var express = require('express');
 var app = express();
@@ -12,6 +15,20 @@ var server = app.listen(4000, function(){
   console.log("example app listening at http://%s:%s", host, port);
 });
 
+app.get('/api/senator', function (req, res) {
+
+
+  senator.find({id: 'F000444' }, function (err, data) {
+      if (err) console.log(err);
+      console.log("found the senator!");
+      console.log(data);
+      res.send(data);
+  });
+
+});
+
+
+
 
 app.use(express.static(__dirname + '/public'));
 app.use('/', senatorRouter);
@@ -24,16 +41,6 @@ app.get('/', function (req, res) {
         res.send(parsed);
   });
 });
-
-
-
-
-
-
-
-
-
-
 
 /*
 var populateFECs = require((__dirname + '/lib/populateFECs'))
@@ -50,4 +57,3 @@ var BuildCommitteeContributes = require(__dirname + '/lib/buildcommcontribs');*/
   .fail(function (error) {
       console.log(error)
   });*/
-
