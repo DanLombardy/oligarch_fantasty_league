@@ -5,7 +5,11 @@ var http = require('http');
 var express = require('express');
 var app = express();
 var fs = require('fs');
-var senatorRouter = require(__dirname + '/routes/routes_senators.js')
+var senatorRouter = require(__dirname + '/routes/routes_senators.js');
+var BuildFinancialDetails = require(__dirname + '/lib/buildfinancialdetails');
+
+
+
 
 
 var server = app.listen(4000, function(){
@@ -15,10 +19,14 @@ var server = app.listen(4000, function(){
   console.log("example app listening at http://%s:%s", host, port);
 });
 
+
+
+
+
 app.get('/api/senator', function (req, res) {
 
 
-  senator.find({id: 'F000444' }, function (err, data) {
+  senator.findOne({FEC_id: 'S6UT00063' }, function (err, data) {
       if (err) console.log(err);
       console.log("found the senator!");
       console.log(data);
@@ -26,6 +34,8 @@ app.get('/api/senator', function (req, res) {
   });
 
 });
+
+
 
 
 

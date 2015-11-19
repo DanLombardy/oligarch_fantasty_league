@@ -1,3 +1,4 @@
+
 /*var SenatorFinances = React.createClass({
 
 
@@ -19,7 +20,7 @@ ReactDOM.render(
 );
 */
 
-var TotalProfile = React.createClass({
+var Senator1Vote= React.createClass({
     getInitialState: function(){
       return {data: "filler"};
     },
@@ -30,8 +31,9 @@ var TotalProfile = React.createClass({
         cache: false,
         success: function(data) {
           console.log("it was a success!")
-          this.setState({data: data});
-          console.log(this.state);
+          if(this.isMounted()){
+            this.setState({data: data});
+          }
         }.bind(this),
         error: function(xhr, status, err) {
           console.error(this.props.url, status, err.toString());
@@ -39,16 +41,39 @@ var TotalProfile = React.createClass({
       });
     },
     render: function(){
+      console.log(this.state);
+      if (typeof this.state.data.factChecks == 'undefined') {
+        return <div> No data bro</div>
+      }
+      if(this.state.data.factChecks.length == 0 ){
+        return (<div><p>Sorry, no factcheck data</p></div>);
+      }
+      var facts =  this.state.data.factChecks;
 
       return (
-        <ul>
-          <li>The senators state is: {this.state.data[0]['twitter_account']}</li>
-        </ul>
+        <div className="factHolder">
+        {
+          facts.map(function(fact){
+            var headline = fact['ruling_headline'];
+            var statement = fact['statement'];
+
+
+
+            return(
+              <div key={fact['_id']} className = "fact-info">
+                <h1>{headline}</h1>
+                <p>{statement}</p>
+                <br />
+              </div>
+            );
+          })
+        }
+        </div>
       );
     }
 });
 
 ReactDOM.render(
-  <TotalProfile />,
-  document.getElementById('content')
+  <Senator1Vote />,
+  document.getElementById('senator1Vote')
 );
