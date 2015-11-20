@@ -1,0 +1,52 @@
+body {
+  font-family: 'Lato', sans-serif;
+  margin:0;
+  /*background-color:#7EE9E5;*/
+}
+
+.lite {
+  font-weight:100;
+}
+
+h3 {
+  font-weight:400;
+}
+
+main{
+  margin: 0 auto;
+
+}
+
+.senator1, .senator2{
+  float:left;
+  width: 30%;
+  margin: 0 calc((50% - 30%)/2);
+  font-family: 'Lato', sans-serif;
+  color:black;
+  font-weight:300;
+}
+
+.senator1{
+  text-align:right;
+}
+
+
+header{
+  text-align:center;
+  background-color:#00C8BE;
+  color:white;
+  font-weight:300;
+  margin-top:0;
+  padding: 0.75em 0;
+  height: 10em;
+}
+
+h1{
+  font-size:2em;
+}
+
+
+.senatorProf img{
+  margin-top: 2em;
+  border-radius: 20px;
+}
